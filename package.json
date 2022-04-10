@@ -1,0 +1,26 @@
+{
+  "name": "beadando-backend",
+  "version": "1.0.0",
+  "description": "A beadandó backendje",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "start_hot_reload": "nodemon index.js"
+  },
+  "keywords": [
+    "beadando"
+  ],
+  "author": "Illés Botond Balázs",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "mogoose": "^0.0.1-security",
+    "mongoose": "^6.2.10",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0"
+  }
+}
