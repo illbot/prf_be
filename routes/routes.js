@@ -146,7 +146,7 @@ router.route('/webshopItem').get((req,res)=>{
     }
 
 }).put((req, res)=>{
-    //Auth kell még bfbfwbwz
+    //Auth kell még
     if(req.body.id && req.body.title && req.body.description){
         webshopModel.findById(req.body.id, (err, webshopItem)=>{
             if(err) return res.status(500).send({message:"DB hiba"})
