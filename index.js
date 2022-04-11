@@ -9,6 +9,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors');
 
 const app = express();
+app.use(cors())
 
 // docker run -d --name \
 //     mongo -p 127.0.0.1:27017:27017 -v $PWD/db:/data/db mongo
@@ -38,8 +39,6 @@ require('./models/webshop-item.model');
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json())
-
-app.use(cors())
 
 passport.use('local', new localStrategy(function (email, password, done) {
     const userModel = mongoose.model('user')
