@@ -80,6 +80,6 @@ app.use('/_test', (req, res) => {
 
 app.use('/', require('./routes/routes'))
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log('A szerver fut')
 })
