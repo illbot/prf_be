@@ -9,7 +9,19 @@ const bodyParser = require('body-parser')
 const cors = require('cors');
 
 const app = express();
-app.use(cors())
+
+const whiteList = ['http://localhost:4200']
+
+app.use(cors({
+    origin: function(origin, callback){
+        if(whiteList.indexOf(origin) !== -1){
+            callback(null, true);
+        } else {
+            callback(new Error('CORS Error'));
+        }
+    }, credentials: true,
+    methods: "GET,PUT,POST,DELETE,OPTIONS"
+}))
 
 // docker run -d --name \
 //     mongo -p 127.0.0.1:27017:27017 -v $PWD/db:/data/db mongo

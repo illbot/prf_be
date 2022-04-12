@@ -17,7 +17,7 @@ router.route('/login').post((req, res, next) => {
             if (error) return res.status(500).send(error);
             // ezzel léptetem bele a sessionbe a felhasználót, a user objektumot utána mindig el tudom majd érni
             // req.user néven
-            req.logIn(user, function (error) {
+            req.login(user, function (error) {
                 if (error) return res.status(500).send(error);
                 return res.status(200).send(req.session.passport);
             })
@@ -164,7 +164,7 @@ router.route('/webshopItem').get((req,res)=>{
 })
 
 router.route('/webshopItem/:id').delete((req,res)=>{
-    //Kell meg Auhtorizacio
+    
     if(req.params.id){
         webshopModel.deleteOne({_id: req.params.id}, (err)=>{
             if(err) return res.status(500).send({message: "Hiba a torles soran"})
@@ -173,7 +173,7 @@ router.route('/webshopItem/:id').delete((req,res)=>{
     } else {
         return res.status(400).send({message: "Hianyzik az id"})
     }
-
+    
 })
 
 module.exports = router;
